@@ -1,0 +1,10 @@
+for i =1:m
+   a_1 = [1 X(i, :)]; % 1 * (n+1) vector
+   a_2 = sigmoid(a_1 * Theta1');  
+   a_2 = [1 a_2];  % 1 * 25 vector
+   a_3 =  sigmoid(a_2 * Theta2');  % 1 * num_labels vector
+   delta_3 = a_3 - y;
+   delta_3 = [1 delta3]; % 1 * (num_labels + 1) vector
+   delta_2 = Theta2' * delta3 .* (a_2 * (1 - a_2));
+   del_2  += delta_3 * a_2';
+   del_1 += delta_2 * Theta1';
